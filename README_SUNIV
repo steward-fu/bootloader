@@ -1,0 +1,6 @@
+pocketgo and trimui: 
+  drivers/mmc/mmc.c                   #define SUNIV_MMC_4BIT 1
+
+fc3000: 
+  drivers/mmc/mmc.c                   #define SUNIV_MMC_4BIT 0
+
