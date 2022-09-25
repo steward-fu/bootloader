@@ -17,7 +17,7 @@ fi
 
 export PATH=/opt/miyoo/bin:$PATH
 echo "bootz 0x80008000 - 0x80C00000" > param.cmd
-./tools/mkimage -C none -A arm -T script -d param.cmd param.scr &&
+./tools/mkimage_prebuilt -C none -A arm -T script -d param.cmd param.scr &&
 ./tools/bin2header param.scr hex_boot > fs/hex_boot.h &&
 ./tools/bin2header ../kernel/arch/arm/boot/zImage hex_kernel > fs/hex_kernel.h &&
 ./tools/bin2header ../kernel/arch/arm/boot/dts/$2.dtb hex_dtb > fs/hex_dtb.h &&
