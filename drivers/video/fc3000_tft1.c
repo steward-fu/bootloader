@@ -201,7 +201,7 @@ static void lcd_panel_init(void)
     lcdc_wr_cmd(swapRB(0x17));
     lcdc_wr_dat(swapRB(0x05));
     lcdc_wr_cmd(swapRB(0x36));
-    lcdc_wr_dat(swapRB(0x09));
+    lcdc_wr_dat(swapRB(0x08));
     lcdc_wr_cmd(swapRB(0x28));
     lcdc_wr_dat(swapRB(0x38));
     lcdc_wr_cmd(swapRB(0x28));
