@@ -23,6 +23,6 @@ echo "bootz 0x80008000 - 0x80C00000" > param.cmd
 ./tools/bin2header ../kernel/arch/arm/boot/dts/$2.dtb hex_dtb > fs/hex_dtb.h &&
 ARCH=arm CROSS_COMPILE=arm-linux- make -j4 &&
 sudo dd if=u-boot-sunxi-with-spl.bin of=$1 bs=1024 seek=8 conv=notrunc && 
-rm -rf param.cmd param.scr &&
+rm -rf param.cmd param.scr fs/hex_boot.h fs/hex_kernel.h scripts/dtc/pylibfdt/libfdt.pyc &&
 sync
 echo "task done !"
