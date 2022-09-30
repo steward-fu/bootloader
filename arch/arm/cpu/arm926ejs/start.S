@@ -20,6 +20,14 @@
 #include <common.h>
 #include <linux/linkage.h>
 
+.equ GPIO_BASE, 0x01c20800
+.equ PA_CFG0,   (GPIO_BASE + (0 * 0x24) + 0x00)
+.equ PA_DATA,   (GPIO_BASE + (0 * 0x24) + 0x10)
+.equ PA_PUL0,   (GPIO_BASE + (0 * 0x24) + 0x14)
+.equ PE_CFG1,   (GPIO_BASE + (4 * 0x24) + 0x04)
+.equ PE_DATA,   (GPIO_BASE + (4 * 0x24) + 0x10)
+
+
 /*
  *************************************************************************
  *
@@ -38,6 +46,30 @@
 	.type   save_boot_params_ret,%function
 
 reset:
+    ldr r0, =PE_CFG1
+    ldr r1, =0x11111111
+    str r1, [r0]
+
+    ldr r0, =PE_DATA
+    ldr r1, =0x00000000
+    str r1, [r0]
+
+    ldr r0, =PA_CFG0
+    ldr r1, =0x11111101
+    str r1, [r0]
+
+    ldr r0, =PA_PUL0
+    ldr r1, =0x55555555
+    str r1, [r0]
+
+    ldr r0, =PA_DATA
+    ldr r1, [r0]
+
+    tst r1, #2
+    bne boot_linux
+    ldr pc, =0xffff4110
+
+boot_linux:
 	/* Allow the board to save important registers */
 	b	save_boot_params
 

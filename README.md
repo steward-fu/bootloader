@@ -1,6 +1,6 @@
 # U-Boot 2018.01 for FC3000 Handheld
 ## Description
-The default serial port is UART0 (PE0, PE1) and default configuration file is configs/suniv_defconfig.  
+The default serial port is UART0 (PE0, PE1) and default configuration file is configs/suniv_defconfig. It supports dual boot function now. You can boot into stock system by pressing SELECT button when power on. By default, it will boot into Linux OS.  
   
 ## Support LCD panel  
 ```console
@@ -31,3 +31,11 @@ $ ARCH=arm make menuconfig
 ```
 Select correct LCD panel you want because each LCD panel has different initial code. 
 ![Alt text](readme/1.jpg)
+  
+## How to boot into stock system
+Press SELECT and then power on  
+![Alt text](readme/3.jpg)
+  
+## How to boot into Linux OS
+Powe on without pressing SELECT  
+![Alt text](readme/2.jpg)
