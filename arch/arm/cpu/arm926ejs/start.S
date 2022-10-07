@@ -23,9 +23,11 @@
 .equ GPIO_BASE, 0x01c20800
 .equ PA_CFG0,   (GPIO_BASE + (0 * 0x24) + 0x00)
 .equ PA_DATA,   (GPIO_BASE + (0 * 0x24) + 0x10)
-.equ PA_PUL0,   (GPIO_BASE + (0 * 0x24) + 0x14)
+.equ PA_PUL0,   (GPIO_BASE + (0 * 0x24) + 0x1c)
+.equ PE_CFG0,   (GPIO_BASE + (4 * 0x24) + 0x00)
 .equ PE_CFG1,   (GPIO_BASE + (4 * 0x24) + 0x04)
 .equ PE_DATA,   (GPIO_BASE + (4 * 0x24) + 0x10)
+.equ PE_PUL0,   (GPIO_BASE + (4 * 0x24) + 0x1c)
 
 
 /*
@@ -46,6 +48,19 @@
 	.type   save_boot_params_ret,%function
 
 reset:
+#ifdef CONFIG_BOOTING_LOGO_FC3000_TFT1
+    ldr r0, =PE_CFG0
+    ldr r1, =0x11111111
+    str r1, [r0]
+
+    ldr r0, =PE_PUL0
+    ldr r1, =0x55555555
+    str r1, [r0]
+    
+    ldr r0, =PE_DATA
+    ldr r1, [r0]
+    tst r1, #(1 << 3)
+#else
     ldr r0, =PE_CFG1
     ldr r1, =0x11111111
     str r1, [r0]
@@ -64,8 +79,9 @@ reset:
 
     ldr r0, =PA_DATA
     ldr r1, [r0]
+    tst r1, #(1 << 1)
+#endif
 
-    tst r1, #2
     bne boot_linux
     ldr pc, =0xffff4110
 
