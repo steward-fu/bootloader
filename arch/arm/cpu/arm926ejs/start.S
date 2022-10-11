@@ -50,7 +50,7 @@
 reset:
 #ifdef CONFIG_BOOTING_LOGO_FC3000_TFT1
     ldr r0, =PE_CFG0
-    ldr r1, =0x11111111
+    ldr r1, =0x11110111
     str r1, [r0]
 
     ldr r0, =PE_PUL0
