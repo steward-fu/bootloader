@@ -1,0 +1,232 @@
+Archive member included to satisfy reference by file (symbol)
+
+/usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+                              /tmp/cclEmMYc.ltrans0.ltrans.o (__aeabi_uidiv)
+/usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+                              /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+
+Allocating common symbols
+Common symbol       size              file
+
+image               0x94              build/main.o (symbol from plugin)
+sdcard0             0x450             build/arch/arm32/mach-t113s3/sdcard.o (symbol from plugin)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ram              0x0000000000030000 0x0000000000010000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD build/arch/arm32/mach-t113s3/start.o
+LOAD /tmp/cclEmMYc.ltrans0.ltrans.o
+LOAD /usr/lib/gcc/arm-none-eabi/7.3.1/../../../arm-none-eabi/lib/thumb/v7-ar/libm.a
+LOAD /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a
+                0x0000000000001000                STACK_SIZE = DEFINED (STACK_SIZE)?STACK_SIZE:DEFINED (__stack_size__)?__stack_size__:0x1000
+
+.text           0x0000000000030000     0x7c80
+                0x0000000000030000                . = ALIGN (0x4)
+                0x0000000000030000                PROVIDE (__spl_start = .)
+                0x0000000000030000                _sfixed = .
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x0000000000030000      0x5a4 build/arch/arm32/mach-t113s3/start.o
+                0x0000000000030000                reset
+ .text          0x00000000000305a4     0x2b28 /tmp/cclEmMYc.ltrans0.ltrans.o
+                0x0000000000032da0                arm32_do_fiq
+                0x0000000000032dbc                arm32_do_irq
+                0x0000000000032dd8                arm32_do_data_abort
+                0x0000000000032df4                arm32_do_prefetch_abort
+                0x0000000000032e10                arm32_do_software_interrupt
+                0x0000000000032e2c                arm32_do_undefined_instruction
+                0x0000000000032e48                memmove
+                0x0000000000032e88                memchr
+                0x0000000000032eb4                strstr
+                0x0000000000032f00                strchr
+                0x0000000000032f30                strncmp
+                0x0000000000032f70                strcmp
+                0x0000000000032fa4                strcat
+                0x0000000000032fd8                strcpy
+                0x0000000000032ff0                strlen
+                0x000000000003300c                memcmp
+                0x0000000000033038                memset
+                0x0000000000033050                memcpy
+ .text.unlikely
+                0x00000000000330cc     0x1bd8 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .text.startup  0x0000000000034ca4     0x1e54 /tmp/cclEmMYc.ltrans0.ltrans.o
+                0x0000000000034ca4                main
+ .text          0x0000000000036af8      0x278 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+                0x0000000000036af8                __udivsi3
+                0x0000000000036af8                __aeabi_uidiv
+                0x0000000000036d54                __aeabi_uidivmod
+ .text          0x0000000000036d70        0x4 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+                0x0000000000036d70                __aeabi_ldiv0
+                0x0000000000036d70                __aeabi_idiv0
+ *(.glue_7t)
+ .glue_7t       0x0000000000036d74        0x0 linker stubs
+ *(.glue_7)
+ .glue_7        0x0000000000036d74        0x0 linker stubs
+ *(.rodata .rodata* .gnu.linkonce.r.*)
+ .rodata        0x0000000000036d74      0x4f4 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .rodata.str1.1
+                0x0000000000037268      0xa16 /tmp/cclEmMYc.ltrans0.ltrans.o
+                                        0xa17 (size before relaxing)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000000000037c80                . = ALIGN (0x4)
+ *fill*         0x0000000000037c7e        0x2 
+ *(.init)
+                0x0000000000037c80                . = ALIGN (0x4)
+                0x0000000000037c80                __preinit_array_start = .
+ *(.preinit_array)
+                0x0000000000037c80                __preinit_array_end = .
+                0x0000000000037c80                . = ALIGN (0x4)
+                0x0000000000037c80                __init_array_start = .
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array)
+                0x0000000000037c80                __init_array_end = .
+                0x0000000000037c80                . = ALIGN (0x4)
+ *crtbegin.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *crtend.o(.ctors)
+                0x0000000000037c80                . = ALIGN (0x4)
+ *(.fini)
+                0x0000000000037c80                . = ALIGN (0x4)
+                0x0000000000037c80                __fini_array_start = .
+ *(.fini_array)
+ *(SORT_BY_NAME(.fini_array.*))
+                0x0000000000037c80                __fini_array_end = .
+ *crtbegin.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *crtend.o(.dtors)
+                0x0000000000037c80                . = ALIGN (0x4)
+                0x0000000000037c80                _efixed = .
+                [!provide]                        PROVIDE (__exidx_start = .)
+
+.vfp11_veneer   0x0000000000037c80        0x0
+ .vfp11_veneer  0x0000000000037c80        0x0 linker stubs
+
+.v4_bx          0x0000000000037c80        0x0
+ .v4_bx         0x0000000000037c80        0x0 linker stubs
+
+.iplt           0x0000000000037c80        0x0
+ .iplt          0x0000000000037c80        0x0 build/arch/arm32/mach-t113s3/start.o
+
+.igot.plt       0x0000000000037c80        0x0
+ .igot.plt      0x0000000000037c80        0x0 build/arch/arm32/mach-t113s3/start.o
+
+.rel.dyn        0x0000000000037c80        0x0
+ .rel.iplt      0x0000000000037c80        0x0 build/arch/arm32/mach-t113s3/start.o
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                [!provide]                        PROVIDE (__exidx_end = .)
+                0x0000000000037c80                . = ALIGN (0x4)
+                0x0000000000037c80                _etext = .
+
+.relocate       0x0000000000037c80      0x690
+                0x0000000000037c80                . = ALIGN (0x4)
+                0x0000000000037c80                _srelocate = .
+ *(.ramfunc .ramfunc.*)
+ *(.data .data.*)
+ .data          0x0000000000037c80        0x0 build/arch/arm32/mach-t113s3/start.o
+ .data          0x0000000000037c80      0x176 /tmp/cclEmMYc.ltrans0.ltrans.o
+ *fill*         0x0000000000037df6        0x2 
+ .data.rel.local
+                0x0000000000037df8       0x50 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .data.rel.ro.local
+                0x0000000000037e48      0x4c8 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .data          0x0000000000038310        0x0 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .data          0x0000000000038310        0x0 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+                0x0000000000038310                . = ALIGN (0x4)
+                0x0000000000038310                _erelocate = .
+                0x0000000000038310                PROVIDE (__spl_end = .)
+                0x0000000000008310                PROVIDE (__spl_size = (__spl_end - __spl_start))
+
+.bss            0x0000000000038310      0x704
+                0x0000000000038310                . = ALIGN (0x4)
+                0x0000000000038310                _sbss = .
+                0x0000000000038310                _szero = .
+ *(.bss .bss.*)
+ .bss           0x0000000000038310        0x0 build/arch/arm32/mach-t113s3/start.o
+ .bss           0x0000000000038310      0x704 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .bss           0x0000000000038a14        0x0 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .bss           0x0000000000038a14        0x0 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+ *(COMMON)
+                0x0000000000038a14                . = ALIGN (0x4)
+                0x0000000000038a14                _ebss = .
+                0x0000000000038a14                _ezero = .
+
+.stack          0x0000000000038a14     0x1004
+                0x0000000000038a18                . = ALIGN (0x8)
+ *fill*         0x0000000000038a14        0x4 
+                0x0000000000038a18                _sstack = .
+                0x0000000000039a18                . = (. + STACK_SIZE)
+ *fill*         0x0000000000038a18     0x1000 
+                0x0000000000039a18                . = ALIGN (0x8)
+                0x0000000000039a18                _estack = .
+                0x0000000000039a18                . = ALIGN (0x4)
+                0x0000000000039a18                _end = .
+OUTPUT(awboot-fel.elf elf32-littlearm)
+
+.ARM.attributes
+                0x0000000000000000       0x27
+ .ARM.attributes
+                0x0000000000000000       0x1d build/arch/arm32/mach-t113s3/start.o
+ .ARM.attributes
+                0x000000000000001d       0x2b /tmp/cclEmMYc.ltrans0.ltrans.o
+ .ARM.attributes
+                0x0000000000000048       0x19 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000000000000061       0x19 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+
+.comment        0x0000000000000000       0x57
+ .comment       0x0000000000000000       0x57 /tmp/cclEmMYc.ltrans0.ltrans.o
+                                         0x58 (size before relaxing)
+
+.debug_line     0x0000000000000000     0x2898
+ .debug_line    0x0000000000000000       0xb5 build/arch/arm32/mach-t113s3/start.o
+ .debug_line    0x00000000000000b5     0x270a /tmp/cclEmMYc.ltrans0.ltrans.o
+ .debug_line    0x00000000000027bf       0x7c /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .debug_line    0x000000000000283b       0x5d /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+
+.debug_info     0x0000000000000000     0xb41f
+ .debug_info    0x0000000000000000       0x26 build/arch/arm32/mach-t113s3/start.o
+ .debug_info    0x0000000000000026     0xb3ad /tmp/cclEmMYc.ltrans0.ltrans.o
+ .debug_info    0x000000000000b3d3       0x26 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .debug_info    0x000000000000b3f9       0x26 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+
+.debug_abbrev   0x0000000000000000      0x695
+ .debug_abbrev  0x0000000000000000       0x14 build/arch/arm32/mach-t113s3/start.o
+ .debug_abbrev  0x0000000000000014      0x659 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .debug_abbrev  0x000000000000066d       0x14 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .debug_abbrev  0x0000000000000681       0x14 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+
+.debug_aranges  0x0000000000000000      0x128
+ .debug_aranges
+                0x0000000000000000       0x20 build/arch/arm32/mach-t113s3/start.o
+ .debug_aranges
+                0x0000000000000020       0xc8 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .debug_aranges
+                0x00000000000000e8       0x20 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+ .debug_aranges
+                0x0000000000000108       0x20 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+
+.debug_str      0x0000000000000000     0x17be
+ .debug_str     0x0000000000000000       0x51 build/arch/arm32/mach-t113s3/start.o
+ .debug_str     0x0000000000000051     0x1703 /tmp/cclEmMYc.ltrans0.ltrans.o
+                                       0x18b5 (size before relaxing)
+ .debug_str     0x0000000000001754       0x6a /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
+                                         0x78 (size before relaxing)
+ .debug_str     0x00000000000017be       0x78 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_dvmd_tls.o)
+
+.debug_loc      0x0000000000000000     0xacfb
+ .debug_loc     0x0000000000000000     0xacfb /tmp/cclEmMYc.ltrans0.ltrans.o
+
+.debug_ranges   0x0000000000000000     0x1c70
+ .debug_ranges  0x0000000000000000     0x1c70 /tmp/cclEmMYc.ltrans0.ltrans.o
+
+.debug_frame    0x0000000000000000      0x6c0
+ .debug_frame   0x0000000000000000      0x6a0 /tmp/cclEmMYc.ltrans0.ltrans.o
+ .debug_frame   0x00000000000006a0       0x20 /usr/lib/gcc/arm-none-eabi/7.3.1/thumb/v7-ar/libgcc.a(_udivsi3.o)
